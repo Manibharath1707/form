@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .table,th,tr,td
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter the name">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter the password">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="email-id">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter the address">
+                    <input type="button" value="submit" class="btn btn-primary" onclick="myfunction()">
+                </form>
+            </div>
+        </div>
+<div></div><br />
+        <div class="row">
+            <div class="col-12">
+                <table id="table">
+                    <tr>
+                        <th>name</th>
+                        <th>password</th>
+                        <th>email</th>
+                        <th>address</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div> -->
+
+    <script>
+        function myfunction()
+        {
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
+            //var element = document.getElementById("table");
+            var a = document.getElementById("table").insertRow();
+            var b = a.insertCell(0);
+            var c = a.insertCell(1);
+            var d = a.insertCell(2);
+            var e = a.insertCell(3);
+            b.innerHTML = name;
+            c.innerHTML = password;
+            d.innerHTML = email;
+            e.innerHTML = address;
+            //document.getElementById("table").appendChild("<tr><td>"+name+"</td><td>"+password+"</td><td>"+email+"</td><td>"+address+"</td></tr>");
+        }
+        function createElements() {
+            var containerDiv = document.createElement('div');
+            containerDiv.className = 'container';
+            var rowDiv = document.createElement('div');
+            rowDiv.className = 'row';
+            var colDiv = document.createElement('div');
+            colDiv.className = 'col-6';
+            var form = document.createElement('form');
+            form.setAttribute('id','form1');
+            
+            var nameLabel = document.createElement('label');
+            nameLabel.innerText = 'Name'
+            nameLabel.setAttribute('for', 'name');
+            var nameInput = document.createElement('input');
+            nameInput.setAttribute('type', 'text');
+            nameInput.setAttribute('class', 'form-control');
+            nameInput.setAttribute('id', 'name');
+            nameInput.setAttribute('placeholder', 'Enter the name');
+
+            var pwdLabel = document.createElement('label');
+            pwdLabel.innerText = 'Password'
+            pwdLabel.setAttribute('for', 'password');
+            var pwdInput = document.createElement('input');
+            pwdInput.setAttribute('type', 'password');
+            pwdInput.setAttribute('class', 'form-control');
+            pwdInput.setAttribute('id', 'password');
+            pwdInput.setAttribute('placeholder', 'Enter the password');
+
+
+            var emailLabel = document.createElement('label');
+            emailLabel.innerText = 'Email'
+            emailLabel.setAttribute('for', 'email');
+            var emailInput = document.createElement('input');
+            emailInput.setAttribute('type', 'text');
+            emailInput.setAttribute('class', 'form-control');
+            emailInput.setAttribute('id', 'email');
+            emailInput.setAttribute('placeholder', 'Email-id');
+
+            var addressLabel = document.createElement('label');
+            addressLabel.innerText = 'Address'
+            addressLabel.setAttribute('for', 'address');
+            var addressInput = document.createElement('input');
+            addressInput.setAttribute('type', 'text');
+            addressInput.setAttribute('class', 'form-control');
+            addressInput.setAttribute('id', 'address');
+            addressInput.setAttribute('placeholder', 'Enter your address');
+
+            var button = document.createElement('button');
+            button.innerText = 'Submit';
+            button.setAttribute('type', 'button');
+            button.setAttribute('class', 'btn btn-primary');
+            button.setAttribute('style', 'margin:20px 0px;');
+            //button.onclick(myfunction());
+            button.addEventListener('click',myfunction);
+
+            var button1 = document.createElement('button');
+            button1.innerText = "Reset";
+            button1.setAttribute('type', 'button');
+            button1.setAttribute('class', 'btn btn-primary');
+            button1.setAttribute('style', 'margin:20px 5px;');
+            button1.addEventListener('click',fun1);
+            
+            form.appendChild(nameLabel)
+            form.appendChild(nameInput);
+            form.appendChild(pwdLabel);
+            form.appendChild(pwdInput);
+            form.appendChild(emailLabel);
+            form.appendChild(emailInput);
+            form.appendChild(addressLabel);
+            form.appendChild(addressInput);
+            form.appendChild(button);
+            form.appendChild(button1);
+
+            colDiv.appendChild(form);
+            rowDiv.appendChild(colDiv);
+            containerDiv.appendChild(rowDiv);
+            document.body.appendChild(containerDiv);
+        }
+        createElements();
+
+        function createElements1()
+        {
+            var rowdiv = document.createElement('div');
+            rowdiv.className = 'row';
+            var coldiv = document.createElement('div');
+            coldiv.className = 'col-6';
+
+            var table = document.createElement('table');
+            table.setAttribute('id','table');
+            table.setAttribute('style','margin:auto;')
+
+            coldiv.appendChild(table);
+            rowdiv.appendChild(coldiv);
+            document.body.appendChild(rowdiv);
+
+            var a = document.getElementById("table").insertRow();
+            var b = a.insertCell(0);
+            var c = a.insertCell(1);
+            var d = a.insertCell(2);
+            var e = a.insertCell(3);
+            b.innerHTML = "Name";
+            c.innerHTML = "Password";
+            d.innerHTML = "Email";
+            e.innerHTML = "Address";
+
+        }
+
+        createElements1();
+
+        function fun1()
+            {
+                document.getElementById('form1').reset();
+            } 
+
+    </script>
+
+</body>
+</html>
